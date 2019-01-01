@@ -1,5 +1,6 @@
 import BaseEditor from "./ui/BaseEditor";
 import Toolbar from "./ui/Toolbar";
+import { EVENT } from "./ui/UIElement";
 
 export class Editor extends BaseEditor {
 
@@ -35,5 +36,9 @@ export class Editor extends BaseEditor {
 
   components() {
     return { Toolbar }
+  }
+
+  [EVENT('SAVE')] () {
+    console.log('fire save event')
   }
 }

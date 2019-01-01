@@ -15,5 +15,7 @@ export default class Toolbar extends UIElement {
     this.dispatch('editor.save', { savedata: true })
 
     console.log(this.read('editor.savedata'))
+
+    this.emit('SAVE');
   }
 }
