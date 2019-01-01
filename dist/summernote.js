@@ -14,9 +14,10 @@
       return Editor;
   }());
 
-  function create(place) {
-      var editor = new Editor(place);
-      return editor;
+  function main() {
+      var editor = new Editor();
+      // tslint:disable-next-line
+      console.log(editor.getName());
   }
 
   exports.create = create;

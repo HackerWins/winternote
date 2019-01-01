@@ -4,7 +4,8 @@
   "description": "Super simple WYSIWYG editor",
   "main": "dist/summernote.js",
   "scripts": {
-    "build": "rollup -c rollup.config.js",
+    "dev": "rollup -w -c config/rollup.config.dev.js",    
+    "build": "rollup -c config/rollup.config.prod.js",
     "lint": "tslint -c tslint.json 'src/**/*.ts' 'test/**/*.ts'",
     "test": "karma start karma.conf.js --single-run",
     "test:watch": "karma start karma.conf.js"
@@ -35,7 +36,9 @@
     "karma-typescript": "^3.0.13",
     "mocha": "^5.2.0",
     "rollup": "^1.0.0",
+    "rollup-plugin-livereload": "^0.6.0",
     "rollup-plugin-node-resolve": "^4.0.0",
+    "rollup-plugin-serve": "^0.6.1",
     "rollup-plugin-typescript": "^1.0.0",
     "tslib": "^1.9.3",
     "tslint": "^5.12.0",
