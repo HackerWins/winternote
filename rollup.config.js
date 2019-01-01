@@ -5,7 +5,7 @@ export default {
   input: 'src/main.ts',
   output: {
     file: 'dist/summernote.js',
-    format: 'iife',
+    format: 'umd',
     name: 'summernote'
   },
   plugins: [

@@ -1,8 +1,12 @@
-var summernote = (function (exports) {
-  'use strict';
+(function (global, factory) {
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+  typeof define === 'function' && define.amd ? define(['exports'], factory) :
+  (global = global || self, factory(global.summernote = {}));
+}(this, function (exports) { 'use strict';
 
   var Editor = /** @class */ (function () {
-      function Editor() {
+      function Editor(place) {
+          this.place = place;
       }
       Editor.prototype.getName = function () {
           return 'summernote';
@@ -10,13 +14,13 @@ var summernote = (function (exports) {
       return Editor;
   }());
 
-  function main() {
-      var editor = new Editor();
-      console.log(editor.getName());
+  function create(place) {
+      var editor = new Editor(place);
+      return editor;
   }
 
-  exports.main = main;
+  exports.create = create;
 
-  return exports;
+  Object.defineProperty(exports, '__esModule', { value: true });
 
-}({}));
+}));

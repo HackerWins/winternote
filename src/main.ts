@@ -1,7 +1,6 @@
 import { Editor } from './editor';
 
-export function main(): void {
-  const editor = new Editor();
-  // tslint:disable-next-line
-  console.log(editor.getName());
+export function create(place: Element): Editor {
+  const editor = new Editor(place);
+  return editor;
 }
