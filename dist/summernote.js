@@ -12,6 +12,7 @@ var summernote = (function (exports) {
 
   function main() {
       var editor = new Editor();
+      // tslint:disable-next-line
       console.log(editor.getName());
   }
 
