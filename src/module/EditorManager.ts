@@ -17,7 +17,8 @@ export default class EditorManager extends BaseModule {
   }
 
   [ACTION('editor.save')] ($store: BaseStore, value: any) {
-    $store.set('editor.savedata', value.savedata || false)
+    $store.set('editor.savedata', value || false)
+    $store.emit('summernote.change');
   }
 
 

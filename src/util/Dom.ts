@@ -224,13 +224,13 @@ export default class Dom {
      * @param {*} value 
      */
     
-    css (key: any, value?: any): any {
-        if (arguments.length == 2) {
-            this.el.style[key] = value;
-        } else if (arguments.length == 1) {
-    
+    css (...args: any[]): any {
+        if (args.length == 2) {
+            this.el.style[args[0]] = args[1];
+        } else if (args.length == 1) {
+            var key = args[0];
             if (isString( key )) {
-                return getComputedStyle(this.el)[key];
+                return getComputedStyle(this.el)[key] || this.el.style[key];
             } else {
                 var keys = key || {};
                 Object.keys(keys).forEach(k => {

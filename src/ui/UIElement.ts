@@ -71,7 +71,7 @@ class UIElement extends EventMachin {
         e = this.getRealEventName(e);
 
         this.storeEvents[e] = callback
-        this.$store.on(e, this.storeEvents[e], this);
+        this.on(e, this.storeEvents[e], this);
       })
 
     });
@@ -79,7 +79,7 @@ class UIElement extends EventMachin {
 
   destoryStoreEvent() {
     Object.keys(this.storeEvents).forEach(event => {
-      this.$store.off(event, this.storeEvents[event])
+      this.off(event, this.storeEvents[event])
     })
   }
 
@@ -98,6 +98,14 @@ class UIElement extends EventMachin {
   dispatch(action: string, ...args: any[]) {
     this.$store.source = this.source;
     return this.$store.dispatch(action, ...args)
+  }
+
+  on(eventType: string, callback: Function, context:object = {}) {
+    this.$store.on(eventType, callback, context);
+  }
+
+  off (eventType: string, callback: Function) {
+    this.$store.off(eventType, callback);
   }
 
   emit(eventType: string, ...args: any[]) {

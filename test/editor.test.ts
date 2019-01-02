@@ -8,5 +8,16 @@ describe('Editor', () => {
       container: place
     });
     assert.equal(editor.read('editor.name'), 'summernote');
+    assert.equal(editor.$el.css('position'), 'relative');
+
+
+    editor.on('summernote.change', function () {
+      console.log('fire save event');
+      assert.equal(editor.read('editor.savedata'), true);
+    })
+
+    editor.dispatch('editor.save', true);
+    // assert.equal(editor.read('editor.savedata'), true);
+
   });
 });
