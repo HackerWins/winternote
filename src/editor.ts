@@ -4,8 +4,8 @@ import { EVENT } from "./ui/UIElement";
 
 export class Editor extends BaseEditor {
 
-  constructor(opt: any, props?: any) {
-    super(opt, props)
+  constructor(opt: object, props?: object) {
+    super(opt, props);
   }
 
   initialize () {
@@ -15,30 +15,30 @@ export class Editor extends BaseEditor {
       width: 400px;
       height: 400px;
       background-color: yellow;
-    `)
+    `);
 
     this.$el.cssText(`
       position: relative;
       width: 100%;
       height: 100%;
-    `)
+    `);
   }
 
-  template () {
+  template (): string {
     return `
       <div class='summernote-layout'>
         <Toolbar></Toolbar>
         <div class='summernote-editable'></div>
         <div class='summernote-codable'></div>
       </div>
-    `
+    `;
   }
 
-  components() {
-    return { Toolbar }
+  components(): object {
+    return { Toolbar };
   }
 
   [EVENT('SAVE')] () {
-    console.log('fire save event')
+    console.log('fire save event');
   }
 }

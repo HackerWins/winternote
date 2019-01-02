@@ -53,7 +53,7 @@ export function isNumber (value: any): boolean {
     return typeof value == 'number';
 }
 
-export function spread<T>(arg: any): Array<T> {
+export function spread<T>(arg: any): T[] {
   return Array.prototype.slice.call(arg);
 }
 
