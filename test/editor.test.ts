@@ -10,11 +10,9 @@ describe('Editor', () => {
     assert.equal(editor.read('editor.name'), 'summernote');
     assert.equal(editor.$el.css('position'), 'relative');
 
-
-    editor.on('summernote.change', function () {
-      console.log('fire save event');
+    editor.on('summernote.change', () => {
       assert.equal(editor.read('editor.savedata'), true);
-    })
+    });
 
     editor.dispatch('editor.save', true);
     // assert.equal(editor.read('editor.savedata'), true);

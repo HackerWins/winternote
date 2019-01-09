@@ -1,5 +1,5 @@
-import EditorManager from './EditorManager';
+import { EditorManager } from "./EditorManager";
 
-export default [
+export const modules = [
   EditorManager
-]
+];

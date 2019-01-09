@@ -1,25 +1,22 @@
-import { ACTION, GETTER } from "../util/Store";
-import BaseStore from "../ui/BaseStore";
-import BaseModule from "../ui/BaseModule";
+import { BaseModule } from "../util/BaseModule";
+import {ACTION, BaseStore, DefaultVariableType, GETTER} from "../util/BaseStore";
 
-export default class EditorManager extends BaseModule {
+export class EditorManager extends BaseModule {
 
-  [GETTER('editor.name')] ($store: BaseStore) {
+  [GETTER('editor.name')] ($store: BaseStore): DefaultVariableType {
     return $store.get('editor.name', 'summernote');
   }
 
-  [GETTER('editor.savedata')] ($store: BaseStore) {
+  [GETTER('editor.savedata')] ($store: BaseStore): DefaultVariableType {
     return $store.get('editor.savedata');
   }
 
-  [ACTION('editor.name')] ($store: BaseStore, name: string) {
+  [ACTION('editor.name')] ($store: BaseStore, name: string): void {
     $store.set('editor.name', name);
   }
 
-  [ACTION('editor.save')] ($store: BaseStore, value: any) {
-    $store.set('editor.savedata', value || false)
+  [ACTION('editor.save')] ($store: BaseStore): void {
+    $store.set('editor.savedata', true);
     $store.emit('summernote.change');
   }
-
-
 }

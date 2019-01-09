@@ -1,14 +1,15 @@
-import BaseEditor from "./ui/BaseEditor";
-import Toolbar from "./ui/Toolbar";
-import { EVENT } from "./ui/UIElement";
+import {BaseEditor} from "./ui/BaseEditor";
+import {Toolbar} from "./ui/Toolbar";
+import { EVENT } from "./util/Component";
+
 
 export class Editor extends BaseEditor {
 
-  constructor(opt: object, props?: object) {
-    super(opt, props);
+  constructor(opt = {}, props = {}) {
+    super(opt, props, null);
   }
 
-  initialize () {
+  initialize (): void {
     super.initialize();
 
     this.$root.cssText(`
@@ -38,7 +39,7 @@ export class Editor extends BaseEditor {
     return { Toolbar };
   }
 
-  [EVENT('SAVE')] () {
+  [EVENT('SAVE')] (): void {
     console.info('fire save event', this.read('editor.savedata'));
   }
 }

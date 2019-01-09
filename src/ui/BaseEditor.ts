@@ -1,40 +1,39 @@
-import Dom from "../util/Dom";
-import UIElement from "./UIElement";
-import BaseStore from "./BaseStore";
+import { modules } from '../module';
+import { BaseStore } from '../util/BaseStore';
+import { Component } from "../util/Component";
+import { DOMElement } from "../util/DOMElement";
 
-import ModuleList from '../module';
 
 
-export default class BaseEditor extends UIElement {
+export class BaseEditor extends Component {
   $store: BaseStore;
-  $body: Dom;
-  $root: Dom;
-  opt: any;
+  $body: DOMElement;
+  $root: DOMElement;
+  opt: Component;
 
-    initialize (modules:any[] = []) { 
-        this.$store = new BaseStore({
-            modules: [
-                ...ModuleList,
-                ...modules
-            ]
-        });
-
-        this.$body = new Dom(this.getContainer());
-        this.$root = new Dom('div', 'summernote');
-
-        this.$body.append(this.$root);        
-
-        if (this.opt.type) {    // to change css style
-            this.$root.addClass(this.opt.type);
+  initialize (externalModules = []): void { 
+    this.$store = new BaseStore({
+        modules: {
+            ...modules,
+            ...externalModules
         }
+    });
 
-        this.render(this.$root)
+    this.$body = new DOMElement(this.getContainer());
+    this.$root = new DOMElement('div', 'summernote');
 
-        // 이벤트 연결 
-        this.initializeEvent();           
+    this.$body.append(this.$root);        
+
+    if (this.opt.type) {
+        this.$root.addClass(this.opt.type);
     }
 
-    getContainer () {
-        return this.opt.container || document.body;
-    }   
+    this.render(this.$root);
+
+    this.initializeEvent();           
+  }
+
+  getContainer (): Element {
+    return this.opt.container || document.body;
+  }   
 }
