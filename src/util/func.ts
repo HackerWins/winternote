@@ -28,11 +28,11 @@ export function isNotUndefined (value: DefaultVariableType): boolean {
     return isUndefined(value) === false;
 }
 
-export function isArray (value: object): boolean {
+export function isArray (value: DefaultVariableType): boolean {
     return Array.isArray(value);
 }
 
-export function isBoolean (value: boolean): boolean {
+export function isBoolean (value: DefaultVariableType): boolean {
     return typeof value === 'boolean';
 }
 
@@ -44,15 +44,15 @@ export function isNotString (value: DefaultVariableType): boolean {
     return isString(value) === false;
 }
 
-export function isObject (value: object): boolean {
-    return typeof value === 'object';
+export function isObject (value: DefaultVariableType): boolean {
+    return typeof value === 'object' && !isArray(value) && value !== null;
 }
 
-export function isFunction (value: Function): boolean {
+export function isFunction (value: DefaultVariableType): boolean {
     return typeof value === 'function';
 }
 
-export function isNumber (value: number): boolean {
+export function isNumber (value: DefaultVariableType): boolean {
     return typeof value === 'number';
 }
 

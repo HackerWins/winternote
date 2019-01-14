@@ -7,7 +7,7 @@ const CHECK_DRAGDROP_PATTERN = 'drag|drop|drag(start|over|enter|leave|exit|end)'
 const CHECK_CONTEXT_PATTERN = 'contextmenu';
 const CHECK_INPUT_PATTERN = 'change|input';
 const CHECK_CLIPBOARD_PATTERN = 'paste';
-const CHECK_BEHAVIOR_PATTERN = 'reisze|scroll';
+const CHECK_BEHAVIOR_PATTERN = 'resize|scroll';
 
 const CHECK_PATTERN_LIST = [
   CHECK_CLICK_PATTERN,

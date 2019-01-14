@@ -108,19 +108,19 @@ export interface EventPositionInterface {
 export class EventUtil {    
 
     static addEvent (
-      dom: Element, 
+      obj: Element, 
       eventName: string, 
       callback: EventListenerOrEventListenerObject, 
       useCapture = false
     ): void {
-        if (dom) {
-            dom.addEventListener(eventName, callback, useCapture);
+        if (obj) {
+          obj.addEventListener(eventName, callback, useCapture);
         }
     }
    
-    static removeEvent(dom, eventName, callback): void {
-        if (dom) {
-            dom.removeEventListener(eventName, callback);
+    static removeEvent(obj, eventName, callback): void {
+        if (obj) {
+          obj.removeEventListener(eventName, callback);
         }
     }
 

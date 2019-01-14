@@ -27,7 +27,7 @@ export class Component extends EventMachine {
   type: string; 
   container: Element;
 
-  constructor(opt = {}, props = {}, parent: Component) {
+  constructor(opt = {}, props = {}, parent?: Component) {
     super(opt, props, parent);
 
     this.source = uuid();
@@ -48,7 +48,7 @@ export class Component extends EventMachine {
 
   }
 
-  getRealEventName(e, s = PREFIX): string {
+  getRealEventName(e: string, s = PREFIX): string {
     const startIndex = e.indexOf(s);
     return e.substr(startIndex === 0 ? 0 : startIndex + s.length);
   }

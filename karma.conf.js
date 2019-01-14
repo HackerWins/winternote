@@ -55,6 +55,18 @@ module.exports = function(config) {
       level: config.LOG_INFO
     },    
 
+    compilerOptions: {
+      sourceMap: true,
+      module: "esnext",
+      moduleResolution: "node",
+      target: "es5",
+      allowSyntheticDefaultImports: true,
+      esModuleInterop: true,
+      typeRoots: [
+        "./node_modules/@types/"
+      ],
+    },
+
 
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG

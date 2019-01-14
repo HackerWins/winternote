@@ -23,7 +23,7 @@ export class EventMachine {
   _bindings: DOMEventObject[];
 
 
-  constructor(opt = {}, props = {}, parent: EventMachine) { 
+  constructor(opt = {}, props = {}, parent?: EventMachine) { 
     this.opt = opt || {};
     this.parent = parent;
     this.props = props || {};    
@@ -31,7 +31,7 @@ export class EventMachine {
     this.children = {};
   }
 
-  render ($container: DOMElement): void {
+  render ($container?: DOMElement): void {
     const ret = this.template();
 
     this.$el = this.parseTemplate(ret);
@@ -96,7 +96,7 @@ export class EventMachine {
     $tempDiv.html(parseString);
 
     const list = $tempDiv.children();
-    
+
     const fragment = document.createDocumentFragment();
 
     list.forEach($el => {

@@ -37,7 +37,7 @@ export class BaseStore {
   source: string;
   items: {};
 
-  constructor(opt: BaseStoreOption) {
+  constructor(opt?: BaseStoreOption) {
     this.callbacks = [];
     this.actions = [];
     this.getters = [];

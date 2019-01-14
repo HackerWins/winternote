@@ -148,7 +148,7 @@ export class DOMElement {
   
   addClass (cls: string): DOMElement {
       if (!this.hasClass(cls)) {
-          this.element.className = `${this.element.className} ${cls}`;
+          this.element.className = `${this.element.className} ${cls}`.trim();
       }
 
       return this; 
@@ -173,7 +173,7 @@ export class DOMElement {
       return this; 
   }
   
-  html (html: string|undefined|DOMElement|Element): DOMElement| string {
+  html (html?: string|undefined|DOMElement|Element|DocumentFragment): DOMElement| string {
 
       if (arguments.length === 0) {
           return this.element.innerHTML;
@@ -185,6 +185,8 @@ export class DOMElement {
           this.empty().append(html as DOMElement);
       } else if (html instanceof Element) {
           this.empty().append(html as Element);
+        } else if (html instanceof DocumentFragment) {
+          this.empty().append(html as DocumentFragment);          
       }
 
       return this;
@@ -220,7 +222,7 @@ export class DOMElement {
       return this.html('') as DOMElement;
   }
   
-  append (el: string| DOMElement| Element): DOMElement {
+  append (el: string| DOMElement| Element | DocumentFragment): DOMElement {
   
       if (isString( el )) {
           this.element.appendChild(document.createTextNode(el as string));
@@ -228,6 +230,8 @@ export class DOMElement {
           this.element.appendChild(el.element);
       } else if (el instanceof Element) {
           this.element.appendChild(el as Element);          
+        } else if (el instanceof DocumentFragment) {
+          this.element.appendChild(el as DocumentFragment);                    
       }
   
       return this;
@@ -289,7 +293,7 @@ export class DOMElement {
       return this;
   }
 
-  cssText (value: string): DOMElement| string {
+  cssText (value?: string): DOMElement| string {
       if (isUndefined( value ))  {
           return this.element.style.cssText;
       }
