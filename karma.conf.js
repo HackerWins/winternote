@@ -28,8 +28,8 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'src/*.ts': 'karma-typescript',
-      'test/*.ts': 'karma-typescript'
+      'src/**/*.ts': 'karma-typescript',
+      'test/**/*.ts': 'karma-typescript'
     },
 
 
@@ -45,6 +45,27 @@ module.exports = function(config) {
 
     // enable / disable colors in the output (reporters and logs)
     colors: true,
+
+    client: {
+      captureConsole: true
+    },
+
+    browserConsoleLogOptions: {
+      terminal: true,
+      level: config.LOG_INFO
+    },    
+
+    compilerOptions: {
+      sourceMap: true,
+      module: "esnext",
+      moduleResolution: "node",
+      target: "es5",
+      allowSyntheticDefaultImports: true,
+      esModuleInterop: true,
+      typeRoots: [
+        "./node_modules/@types/"
+      ],
+    },
 
 
     // level of logging
