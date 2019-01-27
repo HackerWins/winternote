@@ -4,9 +4,18 @@
   (global = global || self, factory(global.summernote = {}));
 }(this, function (exports) { 'use strict';
 
+  var EditorView = /** @class */ (function () {
+      function EditorView(place) {
+          console.log(place);
+          this.place = place;
+      }
+      return EditorView;
+  }());
+
   var Editor = /** @class */ (function () {
       function Editor(place) {
           this.place = place;
+          this.view = new EditorView(place);
       }
       Editor.prototype.getName = function () {
           return 'summernote';
