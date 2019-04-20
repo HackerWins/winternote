@@ -4,9 +4,9 @@ const resolve = require('rollup-plugin-node-resolve');
 export default {
   input: 'src/main.ts',
   output: {
-    file: 'dist/summernote.js',
+    file: 'dist/winternote.js',
     format: 'umd',
-    name: 'summernote'
+    name: 'winternote'
   },
   plugins: [
     typescript({

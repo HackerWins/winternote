@@ -1,6 +1,6 @@
-# Summernote1
+# Winternote
 
-Super simple WYSIWYG Editor. 1 is special.
+Simple block-styled editor.
 
 For development
 

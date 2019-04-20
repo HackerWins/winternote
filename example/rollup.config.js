@@ -12,7 +12,7 @@ export default {
     commonjs(),
     includepaths({
       include: {
-        'summernote': '../dist/summernote.js'
+        'winternote': '../dist/winternote.js'
       }
     })
   ]

@@ -1,8 +1,8 @@
 {
-  "name": "summernote1",
+  "name": "winternote",
   "version": "0.0.1",
-  "description": "Super simple WYSIWYG editor",
-  "main": "dist/summernote.js",
+  "description": "Simple block-styled editor",
+  "main": "dist/winternote.js",
   "scripts": {
     "build": "rollup -c rollup.config.js",
     "lint": "tslint -c tslint.json 'src/**/*.ts' 'test/**/*.ts'",
@@ -17,14 +17,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/summernote/summernote1.git"
+    "url": "git+https://github.com/hackerwins/winternote.git"
   },
   "author": "Summernote Team",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/summernote/summernote1/issues"
+    "url": "https://github.com/hackerwins/winternote/issues"
   },
-  "homepage": "https://github.com/summernote/summernote1#readme",
+  "homepage": "https://github.com/hackerwins/winternote#readme",
   "devDependencies": {
     "@types/mocha": "^5.2.5",
     "chai": "^4.2.0",

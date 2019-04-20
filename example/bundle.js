@@ -11,7 +11,7 @@
 		return module = { exports: {} }, fn(module, module.exports), module.exports;
 	}
 
-	var summernote = createCommonjsModule(function (module, exports) {
+	var winternote = createCommonjsModule(function (module, exports) {
 	(function (global, factory) {
 	  factory(exports);
 	}(commonjsGlobal, function (exports) {
@@ -20,7 +20,7 @@
 	          this.place = place;
 	      }
 	      Editor.prototype.getName = function () {
-	          return 'summernote';
+	          return 'winternote';
 	      };
 	      return Editor;
 	  }());
@@ -37,9 +37,9 @@
 	}));
 	});
 
-	var summernote$1 = unwrapExports(summernote);
+	var winternote$1 = unwrapExports(winternote);
 
-	const editor = summernote$1.create(
+	const editor = winternote$1.create(
 	  document.querySelector('#editor')
 	);
 

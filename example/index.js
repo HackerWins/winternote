@@ -1,5 +1,5 @@
-import summernote from 'summernote'; 
+import winternote from 'winternote'; 
 
-const editor = summernote.create(
+const editor = winternote.create(
   document.querySelector('#editor')
 );
